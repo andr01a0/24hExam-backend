@@ -17,11 +17,13 @@ public class CreateCandidateDTO {
   private String firstName;
   private String lastName;
   private Long partyId;
+  private int votes;
 
   public CreateCandidateDTO(Candidate candidate) {
     this.firstName = candidate.getFirstName();
     this.lastName = candidate.getLastName();
     this.partyId = candidate.getParty().getPartyId();
+    this.votes = candidate.getVotes();
   }
 
   private static ModelMapper modelMapper = new ModelMapper();
@@ -38,7 +40,6 @@ public class CreateCandidateDTO {
   public static Candidate DTOtoEntity(CreateCandidateDTO createCandidateDTO) {
     Candidate candidate = modelMapper.map(createCandidateDTO, Candidate.class);
     candidate.setCandidateId(null);
-    candidate.setVotes(0);
     return candidate;
   }
 
