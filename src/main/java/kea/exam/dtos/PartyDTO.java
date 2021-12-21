@@ -14,10 +14,12 @@ import java.util.stream.Collectors;
 @Setter
 public class PartyDTO {
 
+  private long partyId;
   private String name;
   private String municipality;
 
   public PartyDTO(Party party) {
+    this.partyId = party.getPartyId();
     this.name = party.getName();
     this.municipality = party.getMunicipality();
   }

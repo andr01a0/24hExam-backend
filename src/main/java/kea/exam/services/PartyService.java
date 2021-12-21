@@ -27,6 +27,11 @@ public class PartyService {
     return "ID NOT FOUND: "+id;
   }
 
+  public ResponseEntity<List<PartyDTO>> getAllParties() {
+    List<Party> partyList = partyRepo.findAll();
+    return new ResponseEntity<>(PartyDTO.entityToDTO(partyList), HttpStatus.OK);
+  }
+
   public ResponseEntity<PartyDTO> getPartyById(long id) {
     Party party = partyRepo.findById(id).orElseThrow(() -> new ResourceNotFoundException(errorMessageIDNotFound(id)));
     return new ResponseEntity<>(PartyDTO.entityToDTO(party), HttpStatus.OK);

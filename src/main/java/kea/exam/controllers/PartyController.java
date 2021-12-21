@@ -18,6 +18,11 @@ public class PartyController {
   @Autowired
   PartyService partyService;
 
+  @GetMapping
+  public ResponseEntity<List<PartyDTO>> getAllParties() {
+    return partyService.getAllParties();
+  }
+
   @GetMapping("/{id}")
   public ResponseEntity<PartyDTO> getPartyById(@PathVariable("id") long id) {
     return partyService.getPartyById(id);
