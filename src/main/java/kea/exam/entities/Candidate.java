@@ -24,6 +24,9 @@ public class Candidate {
   @Column(name = "last_name")
   private String lastName;
 
+  @Column(name = "votes")
+  private int votes;
+
   @ManyToOne
   @JoinColumn(name="party_id", nullable=false)
   private Party party;

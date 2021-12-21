@@ -17,13 +17,17 @@ public class CandidateDTO {
   private long candidateId;
   private String firstName;
   private String lastName;
+  private int votes;
   private Long partyId;
+  private String partyName;
 
   public CandidateDTO(Candidate candidate) {
     this.candidateId = candidate.getCandidateId();
     this.firstName = candidate.getFirstName();
     this.lastName = candidate.getLastName();
+    this.votes = candidate.getVotes();
     this.partyId = candidate.getParty().getPartyId();
+    this.partyName = candidate.getParty().getName();
   }
 
   private static ModelMapper modelMapper = new ModelMapper();

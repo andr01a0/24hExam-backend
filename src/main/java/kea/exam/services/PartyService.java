@@ -36,7 +36,7 @@ public class PartyService {
     Party party = partyRepo.findById(id).orElseThrow(() -> new ResourceNotFoundException(errorMessageIDNotFound(id)));
     List<Candidate> candidateList = candidateService.findByParty(party);
     if(candidateList.isEmpty())
-      return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+      throw new ResourceNotFoundException("NO CONTENT");
     else
       return new ResponseEntity<>(CandidateDTO.entityToDTO(candidateList), HttpStatus.OK);
   }

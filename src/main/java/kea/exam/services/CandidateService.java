@@ -21,7 +21,7 @@ public class CandidateService {
   public ResponseEntity<List<CandidateDTO>> getAllCandidates() {
     List<Candidate> candidateList = candidateRepo.findAll();
     if(candidateList.isEmpty())
-      return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+      throw new ResourceNotFoundException("NO CONTENT");
     else
       return new ResponseEntity<>(CandidateDTO.entityToDTO(candidateList), HttpStatus.OK);
   }

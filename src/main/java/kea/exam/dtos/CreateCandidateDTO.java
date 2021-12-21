@@ -38,6 +38,7 @@ public class CreateCandidateDTO {
   public static Candidate DTOtoEntity(CreateCandidateDTO createCandidateDTO) {
     Candidate candidate = modelMapper.map(createCandidateDTO, Candidate.class);
     candidate.setCandidateId(null);
+    candidate.setVotes(0);
     return candidate;
   }
 
